@@ -75,9 +75,13 @@ public class EnemyController : NetworkBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentHp.Value -= damage;
+        if (IsServer)
+        {
+            currentHp.Value -= damage;
 
-        if (currentHp.Value <= 0) StartCoroutine(EnemyDying());
+            if (currentHp.Value <= 0) StartCoroutine(EnemyDying());
+        }
+  
 
     }
 

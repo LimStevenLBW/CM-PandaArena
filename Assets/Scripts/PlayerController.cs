@@ -18,7 +18,12 @@ public class PlayerController : NetworkBehaviour
     public Transform orientation;
     public LayerMask groundLayerMask;
     public Hitbox hitbox;
-    private bool attackAvailable = true;
+
+    private NetworkVariable<bool> attackAvailable = new NetworkVariable<bool>(
+      true,
+      NetworkVariableReadPermission.Everyone,
+      NetworkVariableWritePermission.Server
+    );
 
     private float playerHeight;
     private Animator playerAnimator;
@@ -104,22 +109,29 @@ public class PlayerController : NetworkBehaviour
 
     void Attack()
     {
-        if (Input.GetMouseButtonDown(0) && attackAvailable)
+        if (Input.GetMouseButtonDown(0) && attackAvailable.Value)
         {
-            attackAvailable = false;
-            StartCoroutine(HitboxActivity());
-            playerAnimator.SetTrigger("attackTrigger");
-
+            PlayerAttackServerRpc();
         }
+    }
+
+    [ServerRpc]
+    private void PlayerAttackServerRpc()
+    {
+        StartCoroutine(HitboxActivity());
+        playerAnimator.SetTrigger("attackTrigger");
+
     }
 
     IEnumerator HitboxActivity()
     {
+        attackAvailable.Value = false;
         yield return new WaitForSeconds(0.3f);
         hitbox.gameObject.SetActive(true);
         yield return new WaitForSeconds(0.2f);
         hitbox.gameObject.SetActive(false);
-        attackAvailable = true;
+
+        attackAvailable.Value = true;
     }
 
     void Move() {
@@ -171,7 +183,7 @@ public class PlayerController : NetworkBehaviour
             }
             yield return new WaitForSeconds(0.1f);
 
-            Debug.Log(currentStamina);
+            Debug.Log("Stamina: " + currentStamina);
         }
     }
 

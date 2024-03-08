@@ -27,17 +27,11 @@ public class Hitbox : MonoBehaviour
             Vector3 destination = enemy.transform.position;
 
             Vector3 direction = destination - origin.position;
-
-            //AttackEnemyServerRpc(enemy, 10, direction, 25);
+            enemy.GetKnockedBack(direction, 25);
+            enemy.TakeDamage(10);
         }
     }
 
-    [ServerRpc]
-    private void AttackEnemyServerRpc(EnemyController enemy, int damage, Vector3 direction, float force)
-    {
-        enemy.TakeDamage(10);
-        enemy.GetKnockedBack(direction, 25);
-    }
 
 
 }
