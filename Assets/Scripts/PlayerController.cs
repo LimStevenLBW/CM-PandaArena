@@ -18,6 +18,7 @@ public class PlayerController : NetworkBehaviour
     public Transform orientation;
     public LayerMask groundLayerMask;
     public Hitbox hitbox;
+    private Vector3 spawnPoint;
 
     private NetworkVariable<bool> attackAvailable = new NetworkVariable<bool>(
       true,
@@ -196,6 +197,16 @@ public class PlayerController : NetworkBehaviour
     public bool GetGrounded()
     {
         return isGrounded;
+    }
+
+    public void SetSpawnPoint(Vector3 spawnPoint)
+    {
+        this.spawnPoint = spawnPoint;
+    }
+
+    public Vector3 GetSpawnPoint()
+    {
+        return spawnPoint;
     }
 
     private void OnCollisionEnter(Collision collision)

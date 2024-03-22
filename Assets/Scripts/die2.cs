@@ -20,8 +20,10 @@ public class die2 : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-           Vector3 spawnPoint = new Vector3(0, 1, 0);
-            other.gameObject.transform.position = spawnPoint;
+            PlayerController player = other.gameObject.GetComponent<PlayerController>();
+            Vector3 spawnPoint = player.GetSpawnPoint();
+
+            player.transform.position = spawnPoint;
         }
     }
 }
