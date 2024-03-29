@@ -404,7 +404,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1315586702067096910}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0032405022, y: 0.9945517, z: -0.098975204, w: 0.032562166}
+  m_LocalRotation: {x: 0.0032405055, y: 0.9945517, z: -0.0989752, w: 0.032562204}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -978,7 +978,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1923768938162075943}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.003998204, y: 0.991976, z: -0.12211783, w: 0.032477833}
+  m_LocalRotation: {x: 0.003998207, y: 0.991976, z: -0.12211784, w: 0.032477852}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2420,7 +2420,7 @@ GameObject:
   - component: {fileID: 7700261022068032513}
   - component: {fileID: 4621375894628506598}
   - component: {fileID: -2902910201113180734}
-  - component: {fileID: 2282519966901705584}
+  - component: {fileID: 4026644982998293130}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Player
@@ -2599,7 +2599,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2282519966901705584
+--- !u!114 &4026644982998293130
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2608,7 +2608,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6545006563304216534}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8d0727d5ae3244e3b569694d3912374, type: 3}
+  m_Script: {fileID: 11500000, guid: 3759c3535346a9a45a70b83c2b152ec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TransitionStateInfoList:

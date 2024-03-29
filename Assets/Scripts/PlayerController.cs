@@ -28,6 +28,7 @@ public class PlayerController : NetworkBehaviour
 
     private float playerHeight;
     private Animator playerAnimator;
+    private ClientNetworkAnimator clientAnimator;
 
     [Header("Sounds")]
     public AudioSource source;
@@ -52,6 +53,7 @@ public class PlayerController : NetworkBehaviour
     private void Start()
     {
         playerAnimator = GetComponent<Animator>();
+        clientAnimator = GetComponent<ClientNetworkAnimator>();
         cameraTransform = Camera.main.transform;
         playerHeight = 3; //Estimated
         rb = GetComponent<Rigidbody>();
@@ -120,7 +122,8 @@ public class PlayerController : NetworkBehaviour
     private void PlayerAttackServerRpc()
     {
         StartCoroutine(HitboxActivity());
-        playerAnimator.SetTrigger("attackTrigger");
+        clientAnimator.SetTrigger("attackTrigger");
+        //playerAnimator.SetTrigger("attackTrigger");
 
     }
 
